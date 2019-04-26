@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 
 public class EditSearch extends JFrame{
-    public EditSearch(){
+    public EditSearch(){//修改学生信息界面
         JLabel s = new JLabel("Please enter the person you want to modify :");
         JTextField n = new JTextField();
         JButton sea = new JButton("Search");

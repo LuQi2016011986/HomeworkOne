@@ -8,7 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 public class Delete extends JFrame {
 
-	public Delete(){
+	public Delete(){//删除学生信息界面
 		JLabel s = new JLabel("Please enter the name of the person you want to delete :");
 		JTextField n = new JTextField();
 		JButton d = new JButton("Delete");
