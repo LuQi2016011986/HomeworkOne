@@ -6,9 +6,10 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class StudentManager {
-	List<Student> stu = new ArrayList<Student>();
-
-	public boolean addStudent(Student s) {// æ’å…¥
+	static List<Student> stu = new ArrayList<Student>();
+	
+	public static boolean addStudent(Student s) {// ²åÈëÑ§ÉúµÄĞÅÏ¢
+		
 		try {
 			stu.add(s);
 			return true;
@@ -20,7 +21,7 @@ public class StudentManager {
 
 	}
 
-	public Student findStudentByName(String name)// æŸ¥æ‰¾
+	public static Student findStudentByName(String name)// ²éÕÒÑ§ÉúµÄĞÅÏ¢
 	{
 		Student student = new Student();
 		try {
@@ -49,7 +50,7 @@ public class StudentManager {
 
 	}
 
-	public boolean deleteStudent(String name) {// åˆ é™¤
+	public static boolean deleteStudent(String name) {// É¾³ıÑ§ÉúµÄĞÅÏ¢
 		int size = stu.size();
 		try {
 			for (int i = 0; i < size; i++) {
@@ -67,7 +68,9 @@ public class StudentManager {
 		return false;
 	}
 
-	public List<Student> getAllStudent() {// è¾“å‡º
+
+
+	public static List<Student> getAllStudent() {// Êä³öËùÓĞÑ§ÉúµÄĞÅÏ¢
 		try {
 			List<Student> result = stu.stream().sorted((a, b) -> a.getId() - b.getId()).collect(Collectors.toList());
 			return result;
@@ -77,6 +80,10 @@ public class StudentManager {
 		return null;
 
 	}
+
+	public static void App(){//APP·½·¨
+		Major m = new Major();
+	}
 	
 	/*public Student update(String name){
 		StudentManager s1= new StudentManager();
@@ -85,25 +92,25 @@ public class StudentManager {
 	
 	
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {//Ö®Ç°µÄ²âÊÔ
 
 		StudentManager m = new StudentManager();
 		Scanner in = new Scanner(System.in);
 		
 		while(true){
-			System.out.print("è¯·è¾“å…¥1-6æƒ³è¿›è¡Œçš„æ“ä½œï¼š");
+			System.out.print("ÇëÊäÈë1-6Ïë½øĞĞµÄ²Ù×÷£º");
 			int n = in.nextInt();
 			
 			switch (n) {
 			case 1:
-				System.out.print("è¯·è¾“å…¥å­¦ç”Ÿä¿¡æ¯ï¼š");
+				System.out.print("ÇëÊäÈëÑ§ÉúĞÅÏ¢£º");
 				Student s = new Student();
 				s.setId(in.nextInt());
 				s.setName(in.next());
 				s.setBirDate(in.next());
 				String sex = in.next();
 				boolean sgender;
-				if (sex.equals("ç”·")) {
+				if (sex.equals("ÄĞ")) {
 					sgender = false;
 				} else {
 					sgender = true;
@@ -111,60 +118,60 @@ public class StudentManager {
 				s.setGender(sgender);
 				boolean a = m.addStudent(s);
 				if (a) {
-					System.out.println("æ’å…¥æˆåŠŸ");
+					System.out.println("²åÈë³É¹¦");
 				} else {
-					System.out.println("æ’å…¥å¤±è´¥");
+					System.out.println("²åÈëÊ§°Ü");
 				}
 
 				break;
 			case 2:
-				System.out.print("è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„å§“åï¼š");
+				System.out.print("ÇëÊäÈëÒª²éÕÒµÄĞÕÃû£º");
 				String sname=in.next();
 				if (m.findStudentByName(sname) != null) {
 					Student p = m.findStudentByName(sname);
 					String ss = " ";
 					if (p.getGender()) {
-						ss = "å¥³";
+						ss = "Å®";
 					} else {
-						ss = "ç”·";
+						ss = "ÄĞ";
 					}
-					System.out.println("å­¦ç”ŸID: " + p.getId() + "å­¦ç”Ÿå§“åï¼š" + p.getName() + "å­¦ç”Ÿå‡ºç”Ÿæ—¥æœŸï¼š" + p.getBirDate() + "å­¦ç”Ÿæ€§åˆ«ï¼š" + ss);
+					System.out.println("Ñ§ÉúID: " + p.getId() + "Ñ§ÉúĞÕÃû£º" + p.getName() + "Ñ§Éú³öÉúÈÕÆÚ£º" + p.getBirDate() + "Ñ§ÉúĞÔ±ğ£º" + ss);
 				} else {
-					System.out.println("æŸ¥æ‰¾å¤±è´¥");
+					System.out.println("²éÕÒÊ§°Ü");
 				}
 				break;
 			case 3:
-				System.out.print("è¯·è¾“å…¥è¦åˆ é™¤çš„å­¦ç”Ÿå§“åï¼š");
+				System.out.print("ÇëÊäÈëÒªÉ¾³ıµÄÑ§ÉúĞÕÃû£º");
 				String sname1=in.next();
 				boolean b = m.deleteStudent(sname1);
 				if (b) {
-					System.out.println("åˆ é™¤æˆåŠŸ");
+					System.out.println("É¾³ı³É¹¦");
 				} else {
-					System.out.println("åˆ é™¤å¤±è´¥");
+					System.out.println("É¾³ıÊ§°Ü");
 				}
 				break;
 			case 4:
-				System.out.print("è¯·è¾“å…¥è¦ä¿®æ”¹çš„å­¦ç”Ÿå§“åï¼š");
+				System.out.print("ÇëÊäÈëÒªĞŞ¸ÄµÄÑ§ÉúĞÕÃû£º");
 				String name=in.next();
 				Student stu1=m.findStudentByName(name);
 				if(stu1==null){
-					System.out.println("æ— æ­¤å­¦ç”Ÿä¿¡æ¯");
+					System.out.println("ÎŞ´ËÑ§ÉúĞÅÏ¢");
 				}else{
-					System.out.println("å­¦ç”ŸåŸä¿¡æ¯ä¸ºï¼š");
+					System.out.println("Ñ§ÉúÔ­ĞÅÏ¢Îª£º");
 					
 					Student p = m.findStudentByName(name);
 					String ss = " ";
 					if (p.getGender()) {
-						ss = "å¥³";
+						ss = "Å®";
 					} else {
-						ss = "ç”·";
+						ss = "ÄĞ";
 					}
-					System.out.println("å­¦ç”ŸID: " + p.getId() + "å­¦ç”Ÿå§“åï¼š" + p.getName() + "å­¦ç”Ÿå‡ºç”Ÿæ—¥æœŸï¼š" + p.getBirDate() + "å­¦ç”Ÿæ€§åˆ«ï¼š" + ss);
+					System.out.println("Ñ§ÉúID: " + p.getId() + "Ñ§ÉúĞÕÃû£º" + p.getName() + "Ñ§Éú³öÉúÈÕÆÚ£º" + p.getBirDate() + "Ñ§ÉúĞÔ±ğ£º" + ss);
 					
 					
 					m.deleteStudent(name);
 					
-					System.out.println("è¯·è¾“å…¥ä¿®æ”¹åçš„å„é¡¹ä¿¡æ¯ï¼š");
+					System.out.println("ÇëÊäÈëĞŞ¸ÄºóµÄ¸÷ÏîĞÅÏ¢£º");
 					
 					Student s2 = new Student();
 					s2.setId(in.nextInt());
@@ -172,7 +179,7 @@ public class StudentManager {
 					s2.setBirDate(in.next());
 					String sex2 = in.next();
 					boolean sgender2;
-					if (sex2.equals("ç”·")) {
+					if (sex2.equals("ÄĞ")) {
 						sgender2 = false;
 					} else {
 						sgender2 = true;
@@ -180,9 +187,9 @@ public class StudentManager {
 					s2.setGender(sgender2);
 					boolean flag2=m.addStudent(s2);
 					if (flag2) {
-						System.out.println("ä¿®æ”¹æˆåŠŸ");
+						System.out.println("ĞŞ¸Ä³É¹¦");
 					} else {
-						System.out.println("ä¿®æ”¹å¤±è´¥");
+						System.out.println("ĞŞ¸ÄÊ§°Ü");
 					}
 					
 					
@@ -196,15 +203,15 @@ public class StudentManager {
 					for (int i = 0; i < result.size(); i++) {
 						String ss = " ";
 						if (result.get(i).getGender()) {
-							ss = "å¥³";
+							ss = "Å®";
 						} else {
-							ss = "ç”·";
+							ss = "ÄĞ";
 						}
-						System.out.println("å­¦ç”ŸID: " + result.get(i).getId() + "å­¦ç”Ÿå§“åï¼š" + result.get(i).getName() + "å­¦ç”Ÿå‡ºç”Ÿæ—¥æœŸï¼š"
-								+ result.get(i).getBirDate() + "å­¦ç”Ÿæ€§åˆ«ï¼š" + ss);
+						System.out.println("Ñ§ÉúID: " + result.get(i).getId() + "Ñ§ÉúĞÕÃû£º" + result.get(i).getName() + "Ñ§Éú³öÉúÈÕÆÚ£º"
+								+ result.get(i).getBirDate() + "Ñ§ÉúĞÔ±ğ£º" + ss);
 					}
 				}else{
-					System.out.println("æš‚æ— æ•°æ®");
+					System.out.println("ÔİÎŞÊı¾İ");
 				}
 				
 				break;
@@ -215,7 +222,7 @@ public class StudentManager {
 				break;
 			}
 			if(n==6){
-				System.out.println("ç¨‹åºå³å°†é€€å‡ºï¼Œæ„Ÿè°¢æ‚¨çš„ä½¿ç”¨");
+				System.out.println("³ÌĞò¼´½«ÍË³ö£¬¸ĞĞ»ÄúµÄÊ¹ÓÃ");
 				break;
 				
 			}
@@ -226,21 +233,21 @@ public class StudentManager {
 		
 
 		/*
-		 * Student s = new Student(8, "å¢ç¬¨è›‹", "2018-11-11", true); Student s1 =
-		 * new Student(4, "å¢ç¬¨è›‹2", "2018-11-11", true); Student s2 = new
-		 * Student(9, "å¢ç¬¨è›‹3", "2018-11-11", false);
+		 * Student s = new Student(8, "Â¬±¿µ°", "2018-11-11", true); Student s1 =
+		 * new Student(4, "Â¬±¿µ°2", "2018-11-11", true); Student s2 = new
+		 * Student(9, "Â¬±¿µ°3", "2018-11-11", false);
 		 * 
 		 * StudentManager m = new StudentManager(); boolean a = m.addStudent(s);
-		 * m.addStudent(s2); if (a) { System.out.println("æ’å…¥æˆåŠŸ"); } else {
-		 * System.out.println("æ’å…¥å¤±è´¥"); } boolean b1 = m.addStudent(s1); if (b1)
-		 * { System.out.println("æ’å…¥æˆåŠŸ"); } else { System.out.println("æ’å…¥å¤±è´¥"); }
+		 * m.addStudent(s2); if (a) { System.out.println("²åÈë³É¹¦"); } else {
+		 * System.out.println("²åÈëÊ§°Ü"); } boolean b1 = m.addStudent(s1); if (b1)
+		 * { System.out.println("²åÈë³É¹¦"); } else { System.out.println("²åÈëÊ§°Ü"); }
 		 * 
 		 * List<Student> result=m.getAllStudent(); for(int
 		 * i=0;i<result.size();i++){ String ss = " "; if
-		 * (result.get(i).getGender()) { ss = "å¥³"; } else { ss = "ç”·"; }
-		 * System.out.println("å­¦ç”ŸID: " + result.get(i).getId() + "å­¦ç”Ÿå§“åï¼š" +
-		 * result.get(i).getName() + "å­¦ç”Ÿå‡ºç”Ÿæ—¥æœŸï¼š" + result.get(i).getBirDate() +
-		 * "å­¦ç”Ÿæ€§åˆ«ï¼š" + ss); }
+		 * (result.get(i).getGender()) { ss = "Å®"; } else { ss = "ÄĞ"; }
+		 * System.out.println("Ñ§ÉúID: " + result.get(i).getId() + "Ñ§ÉúĞÕÃû£º" +
+		 * result.get(i).getName() + "Ñ§Éú³öÉúÈÕÆÚ£º" + result.get(i).getBirDate() +
+		 * "Ñ§ÉúĞÔ±ğ£º" + ss); }
 		 */
 
 		
@@ -252,15 +259,13 @@ public class StudentManager {
 		 
 
 		/*
-		 * if (m.findStudentByName("å¢ç¬¨è›‹") != null) { Student p =
-		 * m.findStudentByName("å¢ç¬¨è›‹"); String ss = " "; if (p.getGender()) { ss
-		 * = "å¥³"; } else { ss = "ç”·"; } System.out .println("å­¦ç”ŸID: " + p.getId()
-		 * + "å­¦ç”Ÿå§“åï¼š" + p.getName() + "å­¦ç”Ÿå‡ºç”Ÿæ—¥æœŸï¼š" + p.getBirDate() + "å­¦ç”Ÿæ€§åˆ«ï¼š" + ss);
-		 * } else { System.out.println("æŸ¥æ‰¾å¤±è´¥"); }
+		 * if (m.findStudentByName("Â¬±¿µ°") != null) { Student p =
+		 * m.findStudentByName("Â¬±¿µ°"); String ss = " "; if (p.getGender()) { ss
+		 * = "Å®"; } else { ss = "ÄĞ"; } System.out .println("Ñ§ÉúID: " + p.getId()
+		 * + "Ñ§ÉúĞÕÃû£º" + p.getName() + "Ñ§Éú³öÉúÈÕÆÚ£º" + p.getBirDate() + "Ñ§ÉúĞÔ±ğ£º" + ss);
+		 * } else { System.out.println("²éÕÒÊ§°Ü"); }
 		 */
 
-		// TODO Auto-generated method stub
-
-	}
+/*	}*/
 
 }
