@@ -230,25 +230,6 @@ public class StudentManager {
 			
 		}
 		
-		
-
-		/*
-		 * Student s = new Student(8, "卢笨蛋", "2018-11-11", true); Student s1 =
-		 * new Student(4, "卢笨蛋2", "2018-11-11", true); Student s2 = new
-		 * Student(9, "卢笨蛋3", "2018-11-11", false);
-		 * 
-		 * StudentManager m = new StudentManager(); boolean a = m.addStudent(s);
-		 * m.addStudent(s2); if (a) { System.out.println("插入成功"); } else {
-		 * System.out.println("插入失败"); } boolean b1 = m.addStudent(s1); if (b1)
-		 * { System.out.println("插入成功"); } else { System.out.println("插入失败"); }
-		 * 
-		 * List<Student> result=m.getAllStudent(); for(int
-		 * i=0;i<result.size();i++){ String ss = " "; if
-		 * (result.get(i).getGender()) { ss = "女"; } else { ss = "男"; }
-		 * System.out.println("学生ID: " + result.get(i).getId() + "学生姓名：" +
-		 * result.get(i).getName() + "学生出生日期：" + result.get(i).getBirDate() +
-		 * "学生性别：" + ss); }
-		 */
 
 		
 		
