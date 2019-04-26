@@ -102,7 +102,7 @@ public class StudentManager {
 			int n = in.nextInt();
 			
 			switch (n) {
-			case 1:
+			case 1:          //插入学生学号、姓名、出生日期、性别
 				System.out.print("请输入学生信息：");
 				Student s = new Student();
 				s.setId(in.nextInt());
@@ -124,7 +124,7 @@ public class StudentManager {
 				}
 
 				break;
-			case 2:
+			case 2:      //根据学生姓名进行查找学生信息
 				System.out.print("请输入要查找的姓名：");
 				String sname=in.next();
 				if (m.findStudentByName(sname) != null) {
@@ -140,7 +140,7 @@ public class StudentManager {
 					System.out.println("查找失败");
 				}
 				break;
-			case 3:
+			case 3:     //根据学生姓名查找学生信息并删除
 				System.out.print("请输入要删除的学生姓名：");
 				String sname1=in.next();
 				boolean b = m.deleteStudent(sname1);
@@ -150,7 +150,7 @@ public class StudentManager {
 					System.out.println("删除失败");
 				}
 				break;
-			case 4:
+			case 4:     //根据学生姓名查找学生信息并进行修改
 				System.out.print("请输入要修改的学生姓名：");
 				String name=in.next();
 				Student stu1=m.findStudentByName(name);
@@ -196,7 +196,7 @@ public class StudentManager {
 				}
 			
 				break;
-			case 5:
+			case 5:  //按照学号顺序输出所有的学生信息
 
 				List<Student> result = m.getAllStudent();
 				if(result.size()>0){
@@ -215,7 +215,7 @@ public class StudentManager {
 				}
 				
 				break;
-			case 6:
+			case 6:  //退出程序
 				break;
 
 			default:
@@ -230,42 +230,5 @@ public class StudentManager {
 			
 		}
 		
-		
-
-		/*
-		 * Student s = new Student(8, "卢笨蛋", "2018-11-11", true); Student s1 =
-		 * new Student(4, "卢笨蛋2", "2018-11-11", true); Student s2 = new
-		 * Student(9, "卢笨蛋3", "2018-11-11", false);
-		 * 
-		 * StudentManager m = new StudentManager(); boolean a = m.addStudent(s);
-		 * m.addStudent(s2); if (a) { System.out.println("插入成功"); } else {
-		 * System.out.println("插入失败"); } boolean b1 = m.addStudent(s1); if (b1)
-		 * { System.out.println("插入成功"); } else { System.out.println("插入失败"); }
-		 * 
-		 * List<Student> result=m.getAllStudent(); for(int
-		 * i=0;i<result.size();i++){ String ss = " "; if
-		 * (result.get(i).getGender()) { ss = "女"; } else { ss = "男"; }
-		 * System.out.println("学生ID: " + result.get(i).getId() + "学生姓名：" +
-		 * result.get(i).getName() + "学生出生日期：" + result.get(i).getBirDate() +
-		 * "学生性别：" + ss); }
-		 */
-
-		
-		
-		 
-
-		
-		
-		 
-
-		/*
-		 * if (m.findStudentByName("卢笨蛋") != null) { Student p =
-		 * m.findStudentByName("卢笨蛋"); String ss = " "; if (p.getGender()) { ss
-		 * = "女"; } else { ss = "男"; } System.out .println("学生ID: " + p.getId()
-		 * + "学生姓名：" + p.getName() + "学生出生日期：" + p.getBirDate() + "学生性别：" + ss);
-		 * } else { System.out.println("查找失败"); }
-		 */
-
-/*	}*/
 
 }
