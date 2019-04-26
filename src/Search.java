@@ -8,7 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 public class Search extends JFrame {
 
-	public Search(){
+	public Search(){//查找学生信息界面
 		JLabel s = new JLabel("Please enter the name of the person you are looking for :");
 		JTextField n = new JTextField();
 		JButton sea = new JButton("Search");

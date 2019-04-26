@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 public class Input extends JFrame {
 
-	public Input(){
+	public Input(){//输出所有学生信息界面
 		JLabel id = new JLabel("ID");
 		JLabel name = new JLabel("Name");
 		JLabel bir = new JLabel("Birth");
