@@ -5,6 +5,10 @@ public class Student {
 	private String birDate;
 	private boolean gender;
 	
+	public Student(){
+		
+	}
+	
 	public Student(int id, String name, String birDate, boolean gender) {
 		super();
 		this.id = id;
@@ -31,7 +35,7 @@ public class Student {
 	public void setBirDate(String birDate) {
 		this.birDate = birDate;
 	}
-	public boolean isGender() {
+	public boolean getGender() {
 		return gender;
 	}
 	public void setGender(boolean gender) {
