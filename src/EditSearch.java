@@ -22,14 +22,14 @@ public class EditSearch extends JFrame{
 
         sea.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                String name = n.getText();
-                Student ans = StudentManager.findStudentByName(name);
-                if(ans != null){
-                    Edit ed = new Edit(ans.getId()+"",ans.getName(),ans.getBirDate(),ans.getGender());
-                    StudentManager.deleteStudent(ans.getName());
+            public void actionPerformed(ActionEvent e) {//修改学生信息
+                String name = n.getText();//首先输入学生姓名
+                Student ans = StudentManager.findStudentByName(name);//通过姓名查找到该名学生
+                if(ans != null){//如果查找到该学生
+                    Edit ed = new Edit(ans.getId()+"",ans.getName(),ans.getBirDate(),ans.getGender());//插入一条新的有关该学生的信息
+                    StudentManager.deleteStudent(ans.getName());//将原来的信息删除
                 }else{
-                    Message m = new Message("查无此人！");
+                    Message m = new Message("查无此人！");//否则输出查无此人
                 }
                 dispose();
             }
