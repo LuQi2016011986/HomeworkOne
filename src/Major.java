@@ -8,7 +8,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 
-public class Major extends JFrame {//主页面，在该页面中有六个按钮分别提供操作
+public class Major extends JFrame {
 	
 	private JLabel explain = new JLabel("<html><body>***********************************<br>*                           1  插入                                  *<br>*                           2  查找                                  *<br>*                           3  删除                                  *<br>*                           4  修改                                  *<br>*                           5  输出                                  *<br>*                           6  退出                                  *<br>***********************************<body></html>");
 	private JButton one = new JButton(" 1 ");
