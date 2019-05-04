@@ -48,7 +48,7 @@ public class StudentManager {
 
 	public static boolean deleteStudent(String name) {// 删除学生的信息
 		int size = stu.size();
-		try {
+		try {// 使用try-catch块很好的进行了规范，有利于异常的捕获和程序的健壮性
 			for (int i = 0; i < size; i++) {//遍历集合进行寻找
 				if (stu.get(i).getName().equals(name)) {
 					stu.remove(i);
@@ -64,7 +64,7 @@ public class StudentManager {
 	}
 
 	public static List<Student> getAllStudent() {// 输出所有学生的信息
-		try {
+		try {// 使用try-catch块很好的进行了规范，有利于异常的捕获和程序的健壮性
 			List<Student> result = stu.stream().sorted((a, b) -> a.getId() - b.getId()).collect(Collectors.toList());
 			return result;
 		} catch (Exception e) {
